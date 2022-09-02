@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="justify-center flex items-center bg-[#1B1A17] ">
+    <div class="wrapper bg-[#E6D5B8] w-2/3 rounded-md p-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <input type="text" class="opacity-0 absolute -z-[999] input-field">
+        <div class="contenet-box  p-5 pb-3 border border-solid border-[#1B1A17] rounded-md overflow-y-auto">
+            <div class="typing-text text-2xl text-justify font-extralight break-words overflow-y-auto max-h-48 no-scrollbar">
+                <p class="typing-test2"></p>
+            </div>
+
+            <div class="content flex mt-5 pt-3 border-[#1B1A17] border-t">
+                <ul class="result-details flex w-3/4 justify-between">
+                    <li class="timer flex  border-r border-[#1B1A17] pr-10 ">
+                        <p class="text-[19px] ">Time Left : </p> 
+                        <span class="text-[20px]"><b> 60</b>s</span>
+                    </li>
+
+                    <li class="mistakes flex border-r border-[#1B1A17] pr-10">
+                        <p class="text-[19px] ">Mistakes : </p>
+                        <span class="text-[20px] font-bold">0</span>
+                    </li>
+
+                    <li class="wpm flex  border-r border-[#1B1A17] pr-10">
+                        <p class="text-[19px] ">WPM : </p>
+                        <span class="text-[20px] font-bold">0</span>
+                    </li>
+
+                    <li class="cpm flex border-r border-[#1B1A17] pr-10">
+                        <p class="text-[19px] ">CPM : </p>
+                        <span class="text-[20px] font-bold">0</span>
+                    </li>
+                </ul>
+                <button class="reload-btn transition-transform  active:scale-95 hover:scale-105 cursor-pointer mx-auto px-14 ml-10 bg-[#1B1A17] text-[#E6D5B8] font-extralight rounded-md">Retry</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="sentences.js"></script>
+<script src="script.js"></script>
+</html>
