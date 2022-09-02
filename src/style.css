@@ -45,7 +45,7 @@ span{
 .active::before{
   content: "";
   position: absolute;
-  left: 0;
+  /* left: 0; */
   bottom: 0;
   background: #1B1A17;
   height: 2px;

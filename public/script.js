@@ -3,9 +3,9 @@ const typingTest = document.querySelector("p.typing-test2"),
   inputField = document.querySelector(".wrapper .input-field");
 
 const mistakesTag = document.querySelector(".mistakes span");
-const timerTag = document.querySelector(".timer span b");
+const timerTag = document.querySelector(".timer span");
 const wpmTag = document.querySelector(".wpm span");
-const cpmTag = document.querySelector(".cpm span");
+const clicksTag = document.querySelector(".clicks span");
 const tryAgainBtn = document.querySelector(".reload-btn");
 
 var chrcIndex = mistakeCount = 0;
@@ -59,7 +59,7 @@ function initTyping() {
 
     //mistakes
     mistakesTag.innerHTML = mistakeCount;
-    cpmTag.innerHTML = chrcIndex - mistakeCount;
+    clicksTag.innerHTML = chrcIndex - mistakeCount;
     wpmTag.innerHTML = wpm;
   } else {
     inputField.value = "";
@@ -85,11 +85,11 @@ function reset() {
     timerTag.innerHTML = timeLeft;
     mistakesTag.innerHTML = mistakeCount;
     wpmTag.innerHTML = 0;
-    cpmTag.innerHTML = 0;
+    clicksTag.innerHTML = 0;
 }
 
 
 
 inputField.addEventListener("input", initTyping);
-tryAgainBtn.addEventListener("click", reset);
+tryAgainBtn.addEventListener("click ", reset);
 randomPara();
