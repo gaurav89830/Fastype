@@ -30,10 +30,7 @@ function randomPara() {
 function initTyping() {
   const characters = typingTest.querySelectorAll("span");
   var typedChrc = inputField.value.split("")[chrcIndex];
-
-  var wpm = Math.round(
-    ((chrcIndex - mistakeCount) / 5 / (maxTime - timeLeft)) * 60
-  );
+  var wpm = Math.round(((chrcIndex - mistakeCount)  / 5) / (maxTime - timeLeft) * 60);
   // if wpm is less than zero , empty or infinity then set it to zero.
   if (chrcIndex < characters.length - 1 && timeLeft > 0) {
     wpm = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
@@ -71,6 +68,13 @@ function initTimer() {
   if (timeLeft > 0) {
     timeLeft--;
     timerTag.innerHTML = timeLeft;
+
+
+    let wpm = Math.round(((chrcIndex - mistakeCount)  / 5) / (maxTime - timeLeft) * 60);
+    wpmTag.innerText = wpm;
+
+
+    
   } else {
     clearInterval(timer);
   }
@@ -91,5 +95,6 @@ function reset() {
 
 
 inputField.addEventListener("input", initTyping);
-tryAgainBtn.addEventListener("click ", reset);
+// tryAgainBtn.addEventListener("keydown", reset);
+tryAgainBtn.addEventListener("click", reset);
 randomPara();
