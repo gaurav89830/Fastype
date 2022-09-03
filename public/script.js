@@ -10,10 +10,15 @@ const tryAgainBtn = document.querySelector(".reload-btn");
 
 var chrcIndex = (mistakeCount = 0);
 
-var maxTime = 1;
+var maxTime = 30;
 var timeLeft = maxTime;
 var timer;
 var ifTyping = false;
+
+const testCompletedAudio = new Audio("assets/TestDone.mp3");
+const mistakeAudio = new Audio("assets/Mistake.mp3");
+testCompletedAudio.volume = 0.2;
+mistakeAudio.volume = 1;
 
 function randomPara() {
   var RandomIndex = Math.floor(Math.random() * sentences.length);
@@ -49,6 +54,7 @@ function initTyping() {
         characters[chrcIndex].classList.add("correct");
       } else {
         mistakeCount++;
+        mistakeAudio.play();
         characters[chrcIndex].classList.add("incorrect");
       }
       chrcIndex++;
@@ -62,6 +68,7 @@ function initTyping() {
     wpmTag.innerHTML = wpm;
   } else {
     inputField.value = "";
+    testCompletedAudio.play();
     clearInterval(timer);
   }
 }
@@ -76,8 +83,6 @@ function initTimer() {
     );
     wpmTag.innerText = wpm;
   } else {
-    const audio1 = new Audio("assets/success.mp3");
-    audio1.play();
     clearInterval(timer);
   }
 }
