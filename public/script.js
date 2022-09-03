@@ -15,6 +15,9 @@ var timeLeft = maxTime;
 var timer;
 var ifTyping = false;
 
+var toggleUnderline = false;
+// highlight or toggle 
+
 const testCompletedAudio = new Audio("assets/TestDone.mp3");
 const mistakeAudio = new Audio("assets/Mistake.mp3");
 testCompletedAudio.volume = 0.2;
@@ -27,7 +30,7 @@ function randomPara() {
     var spanTag = `<span>${span}</span>`;
     typingTest.innerHTML += spanTag;
   });
-  typingTest.querySelectorAll("span")[0].classList.add("active");
+  typingTest.querySelectorAll("span")[0].classList.add("activeUL");
   document.addEventListener("keydown", () => inputField.focus());
   typingTest.addEventListener("click", () => inputField.focus());
 }
@@ -59,8 +62,8 @@ function initTyping() {
       }
       chrcIndex++;
     }
-    characters.forEach((span) => span.classList.remove("active"));
-    characters[chrcIndex].classList.add("active");
+    characters.forEach((span) => span.classList.remove("activeUL"));
+    characters[chrcIndex].classList.add("activeUL");
 
     //mistakes
     mistakesTag.innerHTML = mistakeCount;
@@ -68,7 +71,10 @@ function initTyping() {
     wpmTag.innerHTML = wpm;
   } else {
     inputField.value = "";
+    if(ifTyping){
     testCompletedAudio.play();
+    ifTyping=false;
+    }
     clearInterval(timer);
   }
 }

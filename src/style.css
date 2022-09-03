@@ -22,6 +22,9 @@
   scrollbar-width: none;  /* Firefox */
 }
 
+p{
+  color: #1B1A17;
+}
 .correct{
   /* color: #F0A500; */
   color : #319DA0;
@@ -30,7 +33,7 @@
   background-color: #F6CCBD;
   color: #E45826;
   border-radius: 4px;
-  outline: 1px solid #E6D5B8;
+  /* outline: 1px solid #E6D5B8; */
 }
 
 
@@ -39,10 +42,18 @@
 span{
   position: relative;
 }
-.active{
-  color: #1B1A17;
+.activeHL{
+  color: white;
+  /* color: #0e2f30; */
+  border-radius: 4px;
+  background-color: #484745;
 }
-.active::before{
+.activeUL{
+  color: #0e2f30;
+  border-radius: 4px;
+  /* background-color: #484745; */
+}
+.activeUL::before{
   content: "";
   position: absolute;
   /* left: 0; */
