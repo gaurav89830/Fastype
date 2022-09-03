@@ -8,9 +8,9 @@ const wpmTag = document.querySelector(".wpm span");
 const clicksTag = document.querySelector(".clicks span");
 const tryAgainBtn = document.querySelector(".reload-btn");
 
-var chrcIndex = mistakeCount = 0;
+var chrcIndex = (mistakeCount = 0);
 
-var maxTime = 60;
+var maxTime = 1;
 var timeLeft = maxTime;
 var timer;
 var ifTyping = false;
@@ -30,7 +30,9 @@ function randomPara() {
 function initTyping() {
   const characters = typingTest.querySelectorAll("span");
   var typedChrc = inputField.value.split("")[chrcIndex];
-  var wpm = Math.round(((chrcIndex - mistakeCount)  / 5) / (maxTime - timeLeft) * 60);
+  var wpm = Math.round(
+    ((chrcIndex - mistakeCount) / 5 / (maxTime - timeLeft)) * 60
+  );
   // if wpm is less than zero , empty or infinity then set it to zero.
   if (chrcIndex < characters.length - 1 && timeLeft > 0) {
     wpm = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
@@ -69,30 +71,28 @@ function initTimer() {
     timeLeft--;
     timerTag.innerHTML = timeLeft;
 
-
-    let wpm = Math.round(((chrcIndex - mistakeCount)  / 5) / (maxTime - timeLeft) * 60);
+    let wpm = Math.round(
+      ((chrcIndex - mistakeCount) / 5 / (maxTime - timeLeft)) * 60
+    );
     wpmTag.innerText = wpm;
-
-
-    
   } else {
+    const audio1 = new Audio("assets/success.mp3");
+    audio1.play();
     clearInterval(timer);
   }
 }
 
 function reset() {
-    randomPara();
-    clearInterval(timer);
-    chrcIndex = mistakeCount = ifTyping = 0;
-    inputField.innerHTML = "";
-    timeLeft = maxTime
-    timerTag.innerHTML = timeLeft;
-    mistakesTag.innerHTML = mistakeCount;
-    wpmTag.innerHTML = 0;
-    clicksTag.innerHTML = 0;
+  randomPara();
+  clearInterval(timer);
+  chrcIndex = mistakeCount = ifTyping = 0;
+  inputField.innerHTML = "";
+  timeLeft = maxTime;
+  timerTag.innerHTML = timeLeft;
+  mistakesTag.innerHTML = mistakeCount;
+  wpmTag.innerHTML = 0;
+  clicksTag.innerHTML = 0;
 }
-
-
 
 inputField.addEventListener("input", initTyping);
 // tryAgainBtn.addEventListener("keydown", reset);
