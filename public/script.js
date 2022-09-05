@@ -16,12 +16,17 @@ var timer;
 var ifTyping = false;
 
 var toggleUnderline = true;
-// highlight or toggle 
+// highlight or toggle
 
 const testCompletedAudio = new Audio("assets/TestDone.mp3");
 const mistakeAudio = new Audio("assets/Mistake.mp3");
 testCompletedAudio.volume = 0.2;
 mistakeAudio.volume = 1;
+
+
+
+
+
 
 function randomPara() {
   var RandomIndex = Math.floor(Math.random() * sentences.length);
@@ -30,14 +35,21 @@ function randomPara() {
     var spanTag = `<span>${span}</span>`;
     typingTest.innerHTML += spanTag;
   });
+
+
   typingTest.querySelectorAll("span")[0].classList.add("activeUL");
+
   document.addEventListener("keydown", () => inputField.focus());
   typingTest.addEventListener("click", () => inputField.focus());
 }
 
+
+
+
+
 function initTyping() {
-  ifSettingsClicked = false;
-  settings();
+  // ifSettingsClicked = false;
+  // settings();
   const characters = typingTest.querySelectorAll("span");
   var typedChrc = inputField.value.split("")[chrcIndex];
   var wpm = Math.round(
@@ -64,8 +76,12 @@ function initTyping() {
       }
       chrcIndex++;
     }
-    characters.forEach((span) => span.classList.remove("activeUL"));
-    characters[chrcIndex].classList.add("activeUL");
+    characters.forEach((span) => span.classList.remove("activeUL", "activeHL"));
+
+    if (toggleUnderline)
+      typingTest.querySelectorAll("span")[chrcIndex].classList.add("activeUL");
+    else
+      typingTest.querySelectorAll("span")[chrcIndex].classList.add("activeHL");
 
     //mistakes
     mistakesTag.innerHTML = mistakeCount;
@@ -73,13 +89,17 @@ function initTyping() {
     wpmTag.innerHTML = wpm;
   } else {
     inputField.value = "";
-    if(ifTyping){
-    testCompletedAudio.play();
-    ifTyping=false;
+    if (ifTyping) {
+      testCompletedAudio.play();
+      ifTyping = false;
     }
     clearInterval(timer);
   }
 }
+
+
+
+
 
 function initTimer() {
   if (timeLeft > 0) {
@@ -95,8 +115,17 @@ function initTimer() {
   }
 }
 
+
+
+
 function reset() {
+  
+  if(ifToggleQuote){
+  randomQuote();
+  }else{
   randomPara();
+  }
+
   clearInterval(timer);
   chrcIndex = mistakeCount = ifTyping = 0;
   inputField.innerHTML = "";
@@ -125,15 +154,50 @@ function reset() {
 //   }
 // }
 
-function totalTimeChange(t){
-  console.log(t);
-  maxTime = timeLeft = t;
-  timerTag.innerHTML = timeLeft;
+function totalTimeChange(t) {
+  if (!ifTyping) {
+    maxTime = timeLeft = t;
+    timerTag.innerHTML = timeLeft;
+  }
 }
-function highlight(b){
-  toggleUnderline = b;
+
+function highlight(b) {
+  if (!ifTyping) {
+    if (b) {
+      typingTest.querySelectorAll("span")[0].classList.remove("activeHL");
+      typingTest.querySelectorAll("span")[0].classList.add("activeUL");
+    } else {
+      typingTest.querySelectorAll("span")[0].classList.remove("activeUL");
+      typingTest.querySelectorAll("span")[0].classList.add("activeHL");
+    }
+    toggleUnderline = b;
+  }
+}
+
+var ifToggleQuote = false;
+function toggleQuote(){
+  // alert("quote");
+  if(!ifTyping)
+  if(!ifToggleQuote){
+    ifToggleQuote = true;
+    // sentences = quote;
+    randomQuote();
+    // code here
+  }
+  else{
+    ifToggleQuote = false;
+    randomPara();
+  }
+}
+
+function randomQuote() {
+  typingTest.innerHTML = "";
+  quote.split("").forEach((span) => {
+    var spanTag = `<span>${span}</span>`;
+    typingTest.innerHTML += spanTag;
+  });
 }
 inputField.addEventListener("input", initTyping);
-// tryAgainBtn.addEventListener("keydown", reset);
 tryAgainBtn.addEventListener("click", reset);
+
 randomPara();
