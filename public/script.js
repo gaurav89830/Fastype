@@ -36,6 +36,8 @@ function randomPara() {
 }
 
 function initTyping() {
+  ifSettingsClicked = false;
+  settings();
   const characters = typingTest.querySelectorAll("span");
   var typedChrc = inputField.value.split("")[chrcIndex];
   var wpm = Math.round(
@@ -103,6 +105,22 @@ function reset() {
   mistakesTag.innerHTML = mistakeCount;
   wpmTag.innerHTML = 0;
   clicksTag.innerHTML = 0;
+}
+
+var ifSettingsClicked = true;
+function settings(){
+  if(ifSettingsClicked){
+    ifSettingsClicked = false;
+    document.querySelector(".wrapper").classList.add("left-1/3");
+    document.querySelector(".settings").classList.remove("hidden");
+    document.querySelector(".wrapper").classList.remove("left-1/2");
+  }
+  else{
+    ifSettingsClicked = true;
+    document.querySelector(".wrapper").classList.add("left-1/2");
+    document.querySelector(".settings").classList.add("hidden");
+    document.querySelector(".wrapper").classList.remove("left-1/3");
+  }
 }
 
 inputField.addEventListener("input", initTyping);

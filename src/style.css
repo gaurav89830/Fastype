@@ -44,14 +44,12 @@ span{
 }
 .activeHL{
   color: white;
-  /* color: #0e2f30; */
   border-radius: 4px;
   background-color: #484745;
 }
 .activeUL{
   color: #0e2f30;
   border-radius: 4px;
-  /* background-color: #484745; */
 }
 .activeUL::before{
   content: "";
