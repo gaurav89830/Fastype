@@ -15,7 +15,7 @@ var timeLeft = maxTime;
 var timer;
 var ifTyping = false;
 
-var toggleUnderline = false;
+var toggleUnderline = true;
 // highlight or toggle 
 
 const testCompletedAudio = new Audio("assets/TestDone.mp3");
@@ -107,22 +107,32 @@ function reset() {
   clicksTag.innerHTML = 0;
 }
 
-var ifSettingsClicked = true;
-function settings(){
-  if(ifSettingsClicked){
-    ifSettingsClicked = false;
-    document.querySelector(".wrapper").classList.add("left-1/3");
-    document.querySelector(".settings").classList.remove("hidden");
-    document.querySelector(".wrapper").classList.remove("left-1/2");
-  }
-  else{
-    ifSettingsClicked = true;
-    document.querySelector(".wrapper").classList.add("left-1/2");
-    document.querySelector(".settings").classList.add("hidden");
-    document.querySelector(".wrapper").classList.remove("left-1/3");
-  }
-}
+// var ifSettingsClicked = true;
+// function settings(){
+//   if(ifSettingsClicked){
+//     ifSettingsClicked = false;
+//     // document.querySelector(".wrapper").classList.add("hidden");
+//     document.querySelector(".wrapper").classList.add("opacity-50");
+//     document.querySelector(".settings").classList.remove("hidden");
+//     // document.querySelector(".wrapper").classList.remove("left-1/2");
+//   }
+//   else{
+//     ifSettingsClicked = true;
+//     // document.querySelector(".wrapper").classList.add("left-1/2");
+//     document.querySelector(".settings").classList.add("hidden");
+//     document.querySelector(".wrapper").classList.remove("opacity-50");
+//     // document.querySelector(".wrapper").classList.remove("left-1/3");
+//   }
+// }
 
+function totalTimeChange(t){
+  console.log(t);
+  maxTime = timeLeft = t;
+  timerTag.innerHTML = timeLeft;
+}
+function highlight(b){
+  toggleUnderline = b;
+}
 inputField.addEventListener("input", initTyping);
 // tryAgainBtn.addEventListener("keydown", reset);
 tryAgainBtn.addEventListener("click", reset);

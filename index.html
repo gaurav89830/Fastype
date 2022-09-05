@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fastype.tech</title>
     <link rel="stylesheet" href="public/style.css">
 </head>
 <body class="disablecopypaste bg-[#1B1A17] ">
-    <div class="font-extrabold pt-3">
-        <h1 class="text-4xl text-[#E6D5B8] my-auto px-10 inline-block">Fastype</h1>
+    <div class="font-extrabold p-3">
+        <h1 class="text-5xl ml-5 text-[#E6D5B8] my-auto float-left inline-block">Fastype<span class="text-2xl">.tech</span></h1>
         <!-- <h1 class="float-right my-2 mx-5 inline-block">settings</h1> -->
-        <button class=" Settings-btn float-right px-6 py-2" onclick="settings()" >⚙</button>
+        <!-- <button class=" Settings-btn float-right px-6 py-2" onclick="settings()" >⚙</button> -->
+        <button class=" Settings-btn float-right w-12 h-12  font-light text-[#1B1A17] bg-[#E6D5B8] rounded-md" onclick="totalTimeChange(120)" >120s</button>
+        <button class=" Settings-btn float-right w-12 h-12 mx-3 font-light text-[#1B1A17] bg-[#E6D5B8] rounded-md" onclick="totalTimeChange(60)" >60s</button>
+        <button class=" Settings-btn float-right w-12 h-12 mx-3 font-light text-[#1B1A17] bg-[#E6D5B8] rounded-md" onclick="totalTimeChange(30)" >30s</button>
+        <!-- <h1 class="my-auto Settings-btn float-right h-12 mx-3 font-light text-[#E6D5B8] rounded-md" >|</h1> -->
+        <button class=" Settings-btn float-right w-12 h-12 mx-3 font-light text-[#1B1A17] bg-[#E6D5B8] rounded-md " onclick="highlight(true)" ><span class="activeHL">A</span></button>
+        <button class=" Settings-btn float-right w-12 h-12 mx-3 font-light text-[#1B1A17] bg-[#E6D5B8] rounded-md " onclick="highlight(false)" ><span class="activeUL">A</span></button>
     </div>
-    <div class="wrapper bg-[#E6D5B8] w-[550px] sm:w-[650px] lg:w-[800px] rounded-md p-8 absolute top-1/2 left-1/2  transform -translate-x-1/2 -translate-y-1/2">
+    <div class="wrapper bg-[#E6D5B8] w-[550px] sm:w-[650px] lg:w-[800px] rounded-md p-8 absolute top-1/2 left-1/2  transform -translate-x-1/2 -translate-y-1/2  ">
         <input type="text" class="opacity-0 absolute -z-[999] input-field min-h-[500px]">
         <div class="contenet-box  p-5 pb-3 border border-solid border-[#1B1A17] rounded-md overflow-y-auto">
             <div class="typing-text text-lg sm:text-xl md:text-2xl text-justify  font-thin break-all overflow-y-auto tracking-wider no-scrollbar ease-in-out">
@@ -42,15 +48,15 @@
                         <span class="text-[15px] sm:text-[19px]   w-10 ">0</span>
                     </li>
                 </ul>
-                <button  tabindex="-1" class="col-span-5 sm:col-span-1 lg:my-auto my-3 p-3 mx-auto reload-btn transition-transform  active:scale-95 focus:outline-none focus:scale-105 hover:scale-105 cursor-pointer px-10 py-1 top-3  sm:px-8 lg:px-10 bg-[#1B1A17] text-[#E6D5B8] font-extralight rounded-md">Retry</button>
+                <button  tabindex="-1" class="col-span-5 sm:col-span-1 lg:my-auto my-3 p-3 mx-auto reload-btn transition-transform  active:scale-95 focus:outline-none  hover:scale-105 cursor-pointer px-10 py-1 top-3  sm:px-8 lg:px-10 bg-[#1B1A17] text-[#E6D5B8] font-extralight rounded-md">Retry</button>
             </div>
         </div>
     </div>
 
 
 
-    <div class="settings hidden -z-10 bg-[#E6D5B8] w-[400px]  rounded-md p-8 absolute top-1/2 right-[200px]  transform translate-x-1/4 -translate-y-1/2">
-        <div class="contenet-box p-5 border border-solid border-[#1B1A17] rounded-md overflow-y-auto">
+    <!-- <div class="settings hidden z-10 bg-[#E6D5B8] w-[400px]  rounded-md p-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div class="contenet-box p-2 border border-solid border-[#1B1A17] rounded-md overflow-y-auto">
             <h1 class="text-center text-2xl font-extralight">Time</h1>
             <div class="content grid grid-cols-3 pt-3 border-[#1B1A17] border-t">
                 <button  tabindex="-1" class="mx-5 text-center active:scale-95 focus:outline-none  cursor-pointer px-5 py-1  bg-[#1B1A17] text-[#E6D5B8] font-extralight rounded-md">30s</button>
@@ -58,7 +64,7 @@
                 <button  tabindex="-1" class="mx-5 text-center active:scale-95 focus:outline-none  cursor-pointer px-5 py-1  bg-[#1B1A17] text-[#E6D5B8] font-extralight rounded-md">120s</button>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </body>
 <footer>

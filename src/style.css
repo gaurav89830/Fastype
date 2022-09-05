@@ -44,7 +44,7 @@ span{
 }
 .activeHL{
   color: white;
-  border-radius: 4px;
+  border-radius: 3px;
   background-color: #484745;
 }
 .activeUL{
