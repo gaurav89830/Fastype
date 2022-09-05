@@ -29,8 +29,9 @@ mistakeAudio.volume = 1;
 
 
 function randomPara() {
-  var RandomIndex = Math.floor(Math.random() * sentences.length);
   typingTest.innerHTML = "";
+  sentences = input;
+  var RandomIndex = Math.floor(Math.random() * sentences.length);
   sentences[RandomIndex].split("").forEach((span) => {
     var spanTag = `<span>${span}</span>`;
     typingTest.innerHTML += spanTag;
@@ -136,24 +137,6 @@ function reset() {
   clicksTag.innerHTML = 0;
 }
 
-// var ifSettingsClicked = true;
-// function settings(){
-//   if(ifSettingsClicked){
-//     ifSettingsClicked = false;
-//     // document.querySelector(".wrapper").classList.add("hidden");
-//     document.querySelector(".wrapper").classList.add("opacity-50");
-//     document.querySelector(".settings").classList.remove("hidden");
-//     // document.querySelector(".wrapper").classList.remove("left-1/2");
-//   }
-//   else{
-//     ifSettingsClicked = true;
-//     // document.querySelector(".wrapper").classList.add("left-1/2");
-//     document.querySelector(".settings").classList.add("hidden");
-//     document.querySelector(".wrapper").classList.remove("opacity-50");
-//     // document.querySelector(".wrapper").classList.remove("left-1/3");
-//   }
-// }
-
 function totalTimeChange(t) {
   if (!ifTyping) {
     maxTime = timeLeft = t;
@@ -176,27 +159,51 @@ function highlight(b) {
 
 var ifToggleQuote = false;
 function toggleQuote(){
-  // alert("quote");
+
   if(!ifTyping)
   if(!ifToggleQuote){
     ifToggleQuote = true;
     // sentences = quote;
+    // alert("random quote called");
     randomQuote();
     // code here
   }
   else{
     ifToggleQuote = false;
+    // alert("random para called");
+
     randomPara();
   }
 }
 
 function randomQuote() {
+  // alert("this is working");
+  
+  fetch("https://type.fit/api/quotes")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    sentences = data;
+  });
+  console.log(sentences[1]);
+  var RandomIndex = Math.floor(Math.random() * sentences.length);
+  console.log(RandomIndex);
+
   typingTest.innerHTML = "";
-  quote.split("").forEach((span) => {
+
+  sentences[RandomIndex].text.split("").forEach((span) => {
     var spanTag = `<span>${span}</span>`;
     typingTest.innerHTML += spanTag;
   });
+
+  typingTest.querySelectorAll("span")[0].classList.add("activeUL");
+
 }
+
+
+
+
 inputField.addEventListener("input", initTyping);
 tryAgainBtn.addEventListener("click", reset);
 

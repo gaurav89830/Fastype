@@ -21,7 +21,7 @@ const input = [
   "Those cowbells are nothing more than elements. This could be, or perhaps before stockings, thoughts were only opinions. A coil of the exclamation is assumed to be a hurtless toy. A board is the cast of a religion. In ancient times the first stinko sailboat is, in its own way, an exchange. Few can name a tutti channel that isn't a footless operation. Extending this logic, an oatmeal is the rooster of a shake. Those step-sons are nothing more than matches.",
 ];
 
-var sentences = input;
+var sentences;
+var quote;
 
 
-var quote = "fuck off , sun tzu";
