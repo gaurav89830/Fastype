@@ -166,6 +166,7 @@ function toggleQuote(){
     // sentences = quote;
     // alert("random quote called");
     randomQuote();
+  // reset();
     // code here
   }
   else{
@@ -177,7 +178,9 @@ function toggleQuote(){
 }
 
 function randomQuote() {
+
   // alert("this is working");
+  typingTest.innerHTML = "";
   
   fetch("https://type.fit/api/quotes")
   .then(function(response) {
@@ -186,13 +189,10 @@ function randomQuote() {
   .then(function(data) {
     sentences = data;
   });
-  console.log(sentences[1]);
   var RandomIndex = Math.floor(Math.random() * sentences.length);
-  console.log(RandomIndex);
-
-  typingTest.innerHTML = "";
-
-  sentences[RandomIndex].text.split("").forEach((span) => {
+  var string = sentences[RandomIndex];
+  
+  string.split("").forEach((span) => {
     var spanTag = `<span>${span}</span>`;
     typingTest.innerHTML += spanTag;
   });
