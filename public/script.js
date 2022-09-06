@@ -23,11 +23,6 @@ const mistakeAudio = new Audio("assets/Mistake.mp3");
 testCompletedAudio.volume = 0.2;
 mistakeAudio.volume = 1;
 
-
-
-
-
-
 function randomPara() {
   typingTest.innerHTML = "";
   sentences = input;
@@ -37,16 +32,14 @@ function randomPara() {
     typingTest.innerHTML += spanTag;
   });
 
-
-  typingTest.querySelectorAll("span")[0].classList.add("activeUL");
+  // typingTest.querySelectorAll("span")[0].classList.add("activeUL"); //activeUL // bug
+  if (toggleUnderline)
+    typingTest.querySelectorAll("span")[0].classList.add("activeUL");
+  else typingTest.querySelectorAll("span")[0].classList.add("activeHL");
 
   document.addEventListener("keydown", () => inputField.focus());
   typingTest.addEventListener("click", () => inputField.focus());
 }
-
-
-
-
 
 function initTyping() {
   // ifSettingsClicked = false;
@@ -98,10 +91,6 @@ function initTyping() {
   }
 }
 
-
-
-
-
 function initTimer() {
   if (timeLeft > 0) {
     timeLeft--;
@@ -116,15 +105,11 @@ function initTimer() {
   }
 }
 
-
-
-
 function reset() {
-  
-  if(ifToggleQuote){
-  randomQuote();
-  }else{
-  randomPara();
+  if (ifToggleQuote) {
+    randomQuote();
+  } else {
+    randomPara();
   }
 
   clearInterval(timer);
@@ -158,51 +143,46 @@ function highlight(b) {
 }
 
 var ifToggleQuote = false;
-function toggleQuote(){
+function toggleQuote() {
+  if (!ifTyping)
+    if (!ifToggleQuote) {
+      ifToggleQuote = true;
+      // sentences = quote;
+      // alert("random quote called");
+      randomQuote();
+      // reset();
+      // code here
+    } else {
+      ifToggleQuote = false;
+      // alert("random para called");
 
-  if(!ifTyping)
-  if(!ifToggleQuote){
-    ifToggleQuote = true;
-    // sentences = quote;
-    // alert("random quote called");
-    randomQuote();
-  // reset();
-    // code here
-  }
-  else{
-    ifToggleQuote = false;
-    // alert("random para called");
-
-    randomPara();
-  }
+      randomPara();
+    }
 }
 
-function randomQuote() {
+// function randomQuote() {
 
-  // alert("this is working");
-  typingTest.innerHTML = "";
-  
-  fetch("https://type.fit/api/quotes")
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
-    sentences = data;
-  });
-  var RandomIndex = Math.floor(Math.random() * sentences.length);
-  var string = sentences[RandomIndex];
-  
-  string.split("").forEach((span) => {
-    var spanTag = `<span>${span}</span>`;
-    typingTest.innerHTML += spanTag;
-  });
+//   // alert("this is working");
+//   typingTest.innerHTML = "";
 
-  typingTest.querySelectorAll("span")[0].classList.add("activeUL");
+//   fetch("https://type.fit/api/quotes")
+//   .then(function(response) {
+//     return response.json();
+//   })
+//   .then(function(data) {
+//     sentences = data;
+//   });
+//   var RandomIndex = Math.floor(Math.random() * sentences.length);
+//   var string = sentences[RandomIndex];
 
-}
+//   string.split("").forEach((span) => {
+//     var spanTag = `<span>${span}</span>`;
+//     typingTest.innerHTML += spanTag;
+//   });
 
+//   typingTest.querySelectorAll("span")[0].classList.add("activeUL");
 
-
+// }
 
 inputField.addEventListener("input", initTyping);
 tryAgainBtn.addEventListener("click", reset);
