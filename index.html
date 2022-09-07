@@ -9,14 +9,15 @@
     <title>Fastype.tech</title>
 </head>
 <body class="disablecopypaste bg-[#1B1A17] ">
+    <!-- <a href="/" class=" sm:hidden visible p-2 text-2xl sm:text-3xl md:text-5xl ml-1 sm:ml-3 md:ml-5 text-[#E6D5B8] mx-auto block text-center font-extralight">Fastype<span class=" text-xs sm:text-base md:text-2xl">.tech</span></a> -->
     <div class="font-extrabold p-3">
-        <a href="/" class="text-2xl sm:text-3xl md:text-5xl ml-1 sm:ml-3 md:ml-5 text-[#E6D5B8] my-auto float-left inline-block font-extralight">Fastype<span class=" text-xs sm:text-base md:text-2xl">.tech</span></a>
+        <a href="/" class=" visible  text-2xl sm:text-3xl md:text-5xl ml-1 sm:ml-3 md:ml-5 text-[#E6D5B8] my-auto float-left inline-block font-extralight">Fastype<span class=" text-xs sm:text-base md:text-2xl">.tech</span></a>
         <!-- <h1 class="float-right my-2 mx-5 inline-block">settings</h1> -->
         <!-- <button class=" Settings-btn float-right px-6 py-2" onclick="settings()" >⚙</button> -->
-        <button class=" Settings-btn float-right w-8 h-8 text-sm md:text-base md:w-12 md:h-12 mx-2 font-light text-[#1B1A17] bg-[#E6D5B8] rounded-md  mr-5 active:scale-95 focus:outline-none  cursor-pointer " onclick="totalTimeChange(120)" >120s</button>
+        <button class=" Settings-btn float-right w-8 h-8 text-sm md:text-base md:w-12 md:h-12 mx-2 font-light text-[#1B1A17] bg-[#E6D5B8] rounded-md  mr-1 sm:mr-5 active:scale-95 focus:outline-none  cursor-pointer " onclick="totalTimeChange(120)" >120s</button>
         <button class=" Settings-btn float-right w-8 h-8 text-sm md:text-base md:w-12 md:h-12 mx-2 font-light text-[#1B1A17] bg-[#E6D5B8] rounded-md active:scale-95 focus:outline-none  cursor-pointer " onclick="totalTimeChange(60)" >60s</button>
         <button class=" Settings-btn float-right w-8 h-8 text-sm md:text-base md:w-12 md:h-12 mx-2 font-light text-[#1B1A17] bg-[#E6D5B8] rounded-md active:scale-95 focus:outline-none  cursor-pointer " onclick="totalTimeChange(30)" >30s</button>
-        <button class="my-auto Settings-btn float-right h-12 mx-2 font-light text-[#E6D5B8] rounded-md pointer-events-none" >|</button>
+        <button class=" sm:visible hidden my-auto Settings-btn float-right h-12 mx-2 font-light text-[#E6D5B8] rounded-md pointer-events-none" >|</button>
         <button class=" Settings-btn float-right w-8 h-8 text-sm md:text-base md:w-12 md:h-12 mx-2 font-light text-[#1B1A17] bg-[#E6D5B8] rounded-md  active:scale-95 focus:outline-none  cursor-pointer " onclick="highlight(false)" ><span class="activeHL">A</span></button>
         <button class=" Settings-btn float-right w-8 h-8 text-sm md:text-base md:w-12 md:h-12 mx-2 font-light text-[#1B1A17] bg-[#E6D5B8] rounded-md  active:scale-95 focus:outline-none  cursor-pointer " onclick="highlight(true)" ><span class="activeUL">A</span></button>
         <!-- <button class="my-auto Settings-btn float-right h-12 mx-2 font-light text-[#E6D5B8] rounded-md pointer-events-none" >|</button>
@@ -24,36 +25,36 @@
 
 
     </div>
-    <div class="wrapper bg-[#E6D5B8] w-[550px] sm:w-[650px] lg:w-[800px] rounded-md p-8 absolute top-1/2 left-1/2  transform -translate-x-1/2 -translate-y-1/2  ">
+    <div class="wrapper bg-[#E6D5B8] w-[400px] sm:w-[650px] lg:w-[800px] rounded-md p-4 sm:p-8 absolute top-1/2 left-1/2  transform -translate-x-1/2 -translate-y-1/2  ">
         <input type="text" class="opacity-0 absolute -z-[999] input-field min-h-[500px]">
         <div class="contenet-box  p-5 pb-3 border border-solid border-[#1B1A17] rounded-md overflow-y-auto">
-            <div class="typing-text text-lg sm:text-xl md:text-2xl text-justify  font-thin break-all overflow-y-auto tracking-wider no-scrollbar ease-in-out">
+            <div class="typing-text text-base sm:text-xl md:text-2xl text-justify  font-thin break-all overflow-y-auto tracking-wider no-scrollbar ease-in-out">
                 <p class="typing-test2 tracking-widest	relative"></p>
             </div>
 
             <div class="content grid grid-cols-5 mt-5 pt-3 border-[#1B1A17] border-t">
                 <ul class="result-details col-span-5 sm:col-span-4 flex justify-evenly">
                     <li class="timer flex  border-r border-[#1B1A17] my-auto mx-auto">
-                        <p class="text-[15px] sm:text-[19px] ">Time : </p> 
-                        <span class="text-[15px] sm:text-[19px]  w-14">30</span>
+                        <p class="text-[10px] sm:text-[19px] ">Time : </p> 
+                        <span class="text-[10px] sm:text-[19px]  w-14">30</span>
                     </li>
 
                     <li class="mistakes flex border-r border-[#1B1A17] my-auto mx-auto">
-                        <p class="text-[15px] sm:text-[19px]  ">Mistakes : </p>
-                        <span class="text-[15px] sm:text-[19px]  w-10">0</span>
+                        <p class="text-[10px] sm:text-[19px]  ">Mistakes : </p>
+                        <span class="text-[10px] sm:text-[19px]  w-10">0</span>
                     </li>
 
                     <li class="wpm flex  border-r border-[#1B1A17]  my-auto mx-auto">
-                        <p class="text-[15px] sm:text-[19px] ">WPM : </p>
-                        <span class="text-[15px] sm:text-[19px]  w-10">0</span>
+                        <p class="text-[10px] sm:text-[19px] ">WPM : </p>
+                        <span class="text-[10px] sm:text-[19px]  w-10">0</span>
                     </li>
 
                     <li class="clicks flex lg:border-r  border-[#1B1A17] my-auto mx-auto">
-                        <p class="text-[15px] sm:text-[19px]  my-auto ">Clicks : </p>
-                        <span class="text-[15px] sm:text-[19px]   w-10 ">0</span>
+                        <p class="text-[10px] sm:text-[19px]  my-auto ">Clicks : </p>
+                        <span class="text-[10px] sm:text-[19px]   w-10 ">0</span>
                     </li>
                 </ul>
-                <button  tabindex="-1" class="col-span-5 sm:col-span-1 lg:my-auto my-3 p-3 mx-auto reload-btn transition-transform  active:scale-95 focus:outline-none  cursor-pointer px-10 py-1 top-3  sm:px-8 lg:px-10 bg-[#1B1A17] text-[#E6D5B8] font-extralight rounded-md">Retry</button>
+                <button  tabindex="-1" class="col-span-5 sm:col-span-1 lg:my-auto my-3 p-3 mx-auto reload-btn transition-transform  active:scale-95 focus:outline-none  cursor-pointer px-10 py-1 top-3 w-full  lg:w-28 xl:w-36  sm:px-8 lg:px-10 bg-[#1B1A17] text-[#E6D5B8] font-extralight rounded-md">Retry</button>
             </div>
         </div>
     </div>
