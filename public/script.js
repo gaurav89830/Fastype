@@ -21,7 +21,7 @@ var toggleUnderline = true;
 const testCompletedAudio = new Audio("assets/TestDone.mp3");
 const mistakeAudio = new Audio("assets/Mistake.mp3");
 testCompletedAudio.volume = 0.2;
-mistakeAudio.volume = 1;
+mistakeAudio.volume = 0.2;
 
 function randomPara() {
   typingTest.innerHTML = "";
@@ -64,8 +64,8 @@ function initTyping() {
       if (characters[chrcIndex].innerText === typedChrc) {
         characters[chrcIndex].classList.add("correct");
       } else {
-        mistakeCount++;
         mistakeAudio.play();
+        mistakeCount++;
         characters[chrcIndex].classList.add("incorrect");
       }
       chrcIndex++;
@@ -186,5 +186,6 @@ function toggleQuote() {
 
 inputField.addEventListener("input", initTyping);
 tryAgainBtn.addEventListener("click", reset);
+
 
 randomPara();
