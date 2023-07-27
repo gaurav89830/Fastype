@@ -1,8 +1,10 @@
 
 # Overview
 
-The Tipsy app is a user-friendly iOS application that facilitates bill splitting and tip calculation. It allows users to enter the total bill amount, select a predefined tip percentage, specify the number of people to split the bill with, and then calculates the total cost per person, including the tip.
+Fastype is a user-friendly website that helps you test and improve your typing speed. With its simple and intuitive design, you can quickly assess how fast you can type, track your progress, and identify areas for improvement. The frontend of the website is built using Tailwind CSS, providing a sleek and responsive user interface.
 
 ## Demo
 
-![tipsy_demo](https://github.com/gaurav89830/Fastype/assets/40051865/3f3225a7-cd76-443e-971c-3757d80d77b8)
+https://github.com/gaurav89830/Fastype/assets/40051865/278ec383-123b-4df7-a5db-a3ad576225d9
+
+
