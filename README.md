@@ -5,4 +5,4 @@ The Tipsy app is a user-friendly iOS application that facilitates bill splitting
 
 ## Demo
 
-https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHQ2MThtMzRseDM0bGxtbXhwOG84bXRyNzZ5ajl0Z2dzNTRyc2JyZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IJRsc6BFiBtvFZkhdc/giphy.gif
+![tipsy_demo](https://github.com/gaurav89830/Fastype/assets/40051865/3f3225a7-cd76-443e-971c-3757d80d77b8)
