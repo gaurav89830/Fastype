@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+/* ===== Theme CSS Variables (defaults to serika_dark) ===== */
+:root {
+  --bg-color: #323437;
+  --main-color: #e2b714;
+  --caret-color: #e2b714;
+  --sub-color: #646669;
+  --sub-alt-color: #2c2e31;
+  --text-color: #d1d0c5;
+  --error-color: #ca4754;
+  --error-extra-color: #7e2a33;
+
+  --font-family: 'Roboto Mono', 'SF Mono', 'Fira Code', monospace;
+}
+
+/* ===== Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* ===== Typing Area Styles ===== */
+.word {
+  display: inline-flex;
+  margin: 0 6px 4px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.word.error {
+  border-bottom-color: var(--error-color);
+}
+
+.letter {
+  position: relative;
+  color: var(--sub-color);
+  transition: color 0.05s;
+}
+
+.letter.correct {
+  color: var(--text-color);
+}
+
+.letter.incorrect {
+  color: var(--error-color);
+}
+
+.letter.incorrect.extra {
+  color: var(--error-extra-color);
+  opacity: 0.7;
+}
+
+/* ===== Caret Styles ===== */
+.caret {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.caret.line {
+  width: 2px;
+  background-color: var(--caret-color);
+}
+
+.caret.block {
+  background-color: var(--caret-color);
+  opacity: 0.3;
+  border-radius: 2px;
+}
+
+.caret.underline {
+  height: 2px !important;
+  background-color: var(--caret-color);
+  bottom: 0;
+}
+
+.caret.outline {
+  border: 2px solid var(--caret-color);
+  background: transparent;
+  border-radius: 2px;
+}
+
+.caret.blink {
+  animation: caretBlink 1s infinite;
+}
+
+.caret.smooth-slow { transition: left 150ms ease, top 150ms ease; }
+.caret.smooth-medium { transition: left 100ms ease, top 100ms ease; }
+.caret.smooth-fast { transition: left 50ms ease, top 50ms ease; }
+
+@keyframes caretBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ===== Config Bar ===== */
+.config-bar {
+  background-color: var(--sub-alt-color);
+  border-radius: 8px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.config-bar.hidden-during-test {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+}
+
+.config-button {
+  color: var(--sub-color);
+  cursor: pointer;
+  transition: color 0.15s ease;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.config-button:hover {
+  color: var(--text-color);
+}
+
+.config-button.active {
+  color: var(--main-color);
+}
+
+.config-divider {
+  width: 1px;
+  height: 16px;
+  background-color: var(--sub-color);
+  opacity: 0.25;
+  margin: 0 8px;
+}
+
+/* ===== Result Screen ===== */
+.result-screen {
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat-value {
+  color: var(--main-color);
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.stat-label {
+  color: var(--sub-color);
+  font-size: 0.75rem;
+  text-transform: lowercase;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* ===== Focus Warning ===== */
+.focus-warning {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-color);
+  opacity: 0.8;
+  z-index: 20;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* ===== Caps Lock Warning ===== */
+.caps-warning {
+  color: var(--error-color);
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+  padding: 4px 0;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== Selection ===== */
+::selection {
+  background-color: var(--main-color);
+  color: var(--bg-color);
+}
+
+/* ===== Utility ===== */
+.mono { font-family: var(--font-family); }
